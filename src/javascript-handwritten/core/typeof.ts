@@ -20,6 +20,7 @@ export default (() => {
     return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
   }
 
+  // @ts-ignore
   console.log(typeof sss);
 
   console.log(_type(""));
