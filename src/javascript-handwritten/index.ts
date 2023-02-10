@@ -4,5 +4,5 @@ import "@csstools/normalize.css";
 // https://juejin.cn/post/7196700282347733050
 
 // import "./core/apply-call-bind";
-
-import "./core/new";
+// import "./core/new";
+import "./core/instanceof";
