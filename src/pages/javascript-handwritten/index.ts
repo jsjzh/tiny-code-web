@@ -9,8 +9,8 @@ import "@csstools/normalize.css";
 // import "./core/typeof";
 import "./core/array-function";
 
-// @ts-ignore
-if (module.hot) {
-  // @ts-ignore
-  module.hot.accept();
-}
+// // @ts-ignore
+// if (module.hot) {
+//   // @ts-ignore
+//   module.hot.accept();
+// }
