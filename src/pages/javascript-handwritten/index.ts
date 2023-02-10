@@ -8,3 +8,9 @@ import "@csstools/normalize.css";
 // import "./core/instanceof";
 // import "./core/typeof";
 import "./core/array-function";
+
+// @ts-ignore
+if (module.hot) {
+  // @ts-ignore
+  module.hot.accept();
+}
