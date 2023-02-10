@@ -8,7 +8,7 @@
   "author": "jsjzh <kimimi_king@163.com>",
   "license": "MIT",
   "scripts": {
-    "start:javascript-handwritten": "npx parcel src/javascript-handwritten/index.html",
+    "start:javascript-handwritten": "npx parcel src/pages/javascript-handwritten/index.html",
     "start": "npm run start:javascript-handwritten"
   },
   "repository": {
