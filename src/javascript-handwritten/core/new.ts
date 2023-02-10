@@ -13,20 +13,25 @@
  * 3. 如果是非引用类型，则与无返回值相同，返回实例化对象
  */
 
-function Two(this: any, name: string) {
-  this.name = name;
-}
+export default (() => {
+  function People(this: any, name: string) {
+    this.name = name;
+  }
 
-function _new(fn: Function, ...argArray: any[]) {
-  const obj = Object.create(fn.prototype);
-  const res = fn.apply(obj, argArray);
-  return res instanceof Object ? res : obj;
-}
+  function _new(fn: Function, ...argArray: any[]) {
+    const obj = Object.create(fn.prototype);
+    const res = fn.apply(obj, argArray);
+    return res instanceof Object ? res : obj;
+  }
 
-// @ts-ignore
-const two = new Two("king");
+  // @ts-ignore
+  const man = new People("king");
 
-// const two = _new(Two, "king");
+  const man2 = _new(People, "king");
 
-console.log(two);
-console.log(two.name);
+  console.log(man);
+  console.log(man.name);
+
+  console.log(man2);
+  console.log(man2.name);
+})();
