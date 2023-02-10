@@ -1,3 +1,11 @@
+/**
+ * 手写 apply call bind
+ *
+ * 关键就是，存储当前的 this，也就是被调用的函数
+ * 然后新建一个 Object，把上面存储的函数塞进去
+ * 在新的 Object 环境下，执行函数，给予参数
+ */
+
 Function.prototype._apply = function (thisArg, argArray = []) {
   // 上下文对象为 undefined 和 null 时指向 window, 否者强制转为 Object 的包装类型
   thisArg =
@@ -45,25 +53,23 @@ Function.prototype._bind = function (thisArg, argArray) {
   };
 };
 
-export default (() => {
-  const obj = {
-    name: "obj",
-  };
+const obj = {
+  name: "obj",
+};
 
-  function People(this: any, name: string) {
-    this.name = name;
-  }
+function One(this: any, name: string) {
+  this.name = name;
+}
 
-  People.prototype.getName = function (age: number) {
-    console.log(this.name, age);
-  };
+One.prototype.getName = function (age: number) {
+  console.log(this.name, age);
+};
 
-  // @ts-ignore
-  const man = new People("king");
+// @ts-ignore
+const one = new One("king");
 
-  man.getName();
-  man.getName.call(obj, 18);
-  man.getName.apply(obj, [18]);
-  man.getName.bind(obj, [18])();
-  man.getName.bind(obj)(18);
-})();
+one.getName();
+one.getName.call(obj, 18);
+one.getName.apply(obj, [18]);
+one.getName.bind(obj, [18])();
+one.getName.bind(obj)(18);
