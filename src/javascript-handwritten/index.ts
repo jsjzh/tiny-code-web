@@ -6,4 +6,5 @@ import "@csstools/normalize.css";
 // import "./core/apply-call-bind";
 // import "./core/new";
 // import "./core/instanceof";
-import "./core/typeof";
+// import "./core/typeof";
+import "./core/array-function";
