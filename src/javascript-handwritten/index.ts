@@ -5,4 +5,5 @@ import "@csstools/normalize.css";
 
 // import "./core/apply-call-bind";
 // import "./core/new";
-import "./core/instanceof";
+// import "./core/instanceof";
+import "./core/typeof";
