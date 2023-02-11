@@ -7,9 +7,10 @@ import "@csstools/normalize.css";
 // import "./core/new";
 // import "./core/instanceof";
 // import "./core/typeof";
-import "./core/array-function";
+// import "./core/array-function";
+import "./core/deep-clone";
 
-// // @ts-ignore
+// @ts-ignore
 // if (module.hot) {
 //   // @ts-ignore
 //   module.hot.accept();
