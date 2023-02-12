@@ -8,7 +8,13 @@ import "@csstools/normalize.css";
 // import "./core/instanceof";
 // import "./core/typeof";
 // import "./core/array-function";
-import "./core/deep-clone";
+// TODO
+// import "./core/deep-clone";
+// TODO
+// import "./core/object-iterator";
+// TODO
+// import "./core/debounce-throttle";
+import "./core/array-sort";
 
 // @ts-ignore
 // if (module.hot) {

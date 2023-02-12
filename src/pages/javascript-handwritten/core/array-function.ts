@@ -1,5 +1,5 @@
 /**
- * 手写 array-function
+ * 手写 array function
  *
  * find 如果没找到，返回的是 undefined
  * findIndex 如果没找到，返回的是 -1
