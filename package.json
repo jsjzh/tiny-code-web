@@ -1,5 +1,6 @@
 {
   "name": "tiny-code-web",
+  "private": true,
   "version": "1.0.0",
   "description": "tiny-code-web",
   "keywords": [
