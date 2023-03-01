@@ -1,5 +1,3 @@
-import "normalize.css";
-
 const createFromCharCode = (start: number, end: number) => {
   const result = [];
   for (let code = start; code <= end; code++)
