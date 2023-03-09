@@ -1,58 +1,57 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { createMockData } from "./utils";
 
-axios.interceptors.request.use((config) => {
+const mockRequestInterceptors = (
+  config: InternalAxiosRequestConfig,
+): InternalAxiosRequestConfig => {
+  console.log(process.env.NODE_ENV);
+
   console.log(config);
+
+  const myURL = new URL(config.url || "/");
+
+  // console.log(myURL);
+  // console.log(myURL.pathname);
+
   return {
     ...config,
+    method: "get",
+    url: myURL.pathname + myURL.search,
     mockConfig: {
       enabled: true,
-      timeout: 500,
+      timeout: 200,
     },
   };
-});
+};
 
-// <{ mockConfig: any }>
+const mockResponseInterceptors = (data: AxiosResponse) => {
+  console.log(data);
 
-axios.interceptors.response.use(
-  (
-    data: AxiosResponse<
-      any,
-      {
-        mockConfig: {
-          enabled: boolean;
-          timeout: number;
-        };
-        mockData: any;
-      }
-    >,
-  ) => {
-    if (!(data.config as any).mockConfig.enabled) return data;
-    else {
-      console.log(data.config.mockData);
+  if (!data.config.mockConfig?.enabled) return data;
+  else {
+    return new Promise<any>((resolve) => {
+      setTimeout(() => {
+        data.data = data.config.mockData;
+        resolve(data);
+      }, data.config.mockConfig?.timeout || 200);
+    });
+  }
+};
 
-      console.log(data.config.loading);
-
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          data.data = "you have been promised!";
-          resolve(data);
-        }, 200);
-      });
-    }
-  },
-);
+axios.interceptors.request.use(mockRequestInterceptors);
+axios.interceptors.response.use(mockResponseInterceptors);
 
 (async () => {
-  const data = await axios.get("123", {
-    mockData: { name: "king" },
-    // transformRequest(...args) {
-    //   console.log(args);
+  const data = await axios.get<{ name: string }>(
+    "http://it-billing-pro-web.dasouche-inc.net/businessNode/34/businessUnitNodes?age=18",
+    { params: { name: "string" } },
+    // {
+    //   mockData: (query, data) => {
+    //     console.log(query);
+    //     console.log(query);
+    //   },
     // },
-    // transformResponse(...args) {
-    //   console.log(args);
-    // },
-  });
+  );
 
-  // console.log(data);
+  console.log(data.data);
 })();

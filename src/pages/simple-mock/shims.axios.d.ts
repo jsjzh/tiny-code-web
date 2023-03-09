@@ -1,7 +1,14 @@
-import { AxiosResponse } from "axios";
+import { InternalAxiosRequestConfig, AxiosRequestConfig } from "axios";
 
 declare module "axios" {
-  export interface AxiosResponse {
-    loading?: boolean;
+  export interface InternalAxiosRequestConfig {
+    mockConfig?: { enabled?: boolean; timeout?: number };
+    mockData?: { [k: string]: any };
+  }
+
+  export interface AxiosRequestConfig {
+    mockConfig?: { enabled?: boolean; timeout?: number };
+    // mockData?: { [k: string]: any };
+    mockData?: (query: string, data: string) => void;
   }
 }
