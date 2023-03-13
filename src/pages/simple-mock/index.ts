@@ -31,7 +31,7 @@ const mockResponseInterceptors = (data: AxiosResponse) => {
   else {
     return new Promise<any>((resolve) => {
       setTimeout(() => {
-        data.data = data.config.mockData;
+        data.data = data.config.mockData && data.config.mockData("{}", "{}");
         resolve(data);
       }, data.config.mockConfig?.timeout || 200);
     });
@@ -43,8 +43,13 @@ axios.interceptors.response.use(mockResponseInterceptors);
 
 (async () => {
   const data = await axios.get<{ name: string }>(
-    "http://it-billing-pro-web.dasouche-inc.net/businessNode/34/businessUnitNodes?age=18",
-    { params: { name: "string" } },
+    "http://www.baidu.com",
+    {
+      params: { name: "string" },
+      mockData: () => {
+        name: "king";
+      },
+    },
     // {
     //   mockData: (query, data) => {
     //     console.log(query);
