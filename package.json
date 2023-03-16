@@ -11,7 +11,9 @@
   "scripts": {
     "start:javascript-handwritten": "npx parcel src/pages/javascript-handwritten/index.html",
     "start:simple-mock": "npx parcel src/pages/simple-mock/index.html",
-    "start": "npm run start:simple-mock"
+    "start": "npm run start:simple-mock",
+    "format": "prettier --write --cache --parser typescript \"**/*.[tj]s?(x)\"",
+    "format:check": "prettier --check --cache --parser typescript \"**/*.[tj]s?(x)\""
   },
   "repository": {
     "type": "git",
