@@ -13,8 +13,8 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^18.16.6
-    version: 18.16.6
+    specifier: ^18.16.8
+    version: 18.16.8
   '@types/ramda':
     specifier: ^0.28.25
     version: 0.28.25
@@ -977,8 +977,8 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
-  /@types/node@18.16.6:
-    resolution: {integrity: sha512-N7KINmeB8IN3vRR8dhgHEp+YpWvGFcpDoh5XZ8jB5a00AdFKCKEyyGTOPTddUf4JqU1ZKTVxkOxakDvchNVI2Q==}
+  /@types/node@18.16.8:
+    resolution: {integrity: sha512-p0iAXcfWCOTCBbsExHIDFCfwsqFwBTgETJveKMT+Ci3LY9YqQCI91F5S+TB20+aRCXpcWfvx5Qr5EccnwCm2NA==}
     dev: true
 
   /@types/parse-json@4.0.0:
