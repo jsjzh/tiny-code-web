@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/jsjzh/tiny-code-web#readme",
   "dependencies": {
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "dayjs": "^1.11.10",
     "ramda": "^0.28.0"
   },
